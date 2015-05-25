@@ -2,3 +2,5 @@ Test for commits
 Work well
 
 Good job git
+
+http://docs.phonegap.com/en/2.5.0/cordova_geolocation_geolocation.md.html#geolocationOptions
