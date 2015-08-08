@@ -1,0 +1,14 @@
+<ion-view view-title="Mapa">
+  <ion-content>
+  		<label class="item item-icon-left item-text-wrap">
+    		<i class="icon ion-android-pin"></i>
+    		{{request.description}}
+    	</label>
+    	<a class="item item-icon-left item-icon-right" ng-click="">
+    		<i class="icon ion-android-walk"></i>
+    		{{request.distance}}
+    		<i class="icon ion-loop"></i>
+    	</a>
+    <div id="map" data-tap-disabled="true"></div>
+  </ion-content>
+</ion-view>

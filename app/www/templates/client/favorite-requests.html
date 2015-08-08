@@ -1,0 +1,15 @@
+<ion-view view-title="Solicitudes favoritas">
+  <ion-content>
+  	<ion-refresher
+	    pulling-text="Pull to refresh..."
+	    on-refresh="doRequestsRefresh()">
+	  </ion-refresher>
+    <ion-toggle ng-model="shouldShowDelete">¿Administrar favoritas?</ion-toggle>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item class="item item-text-wrap" ng-repeat="request in requests" ng-click="confirmCreateFav(request.request_id)">
+      <ion-delete-button class="ion-minus-circled" ng-click="confirmDelRequest(request.id)"></ion-delete-button>
+        {{request.alias}}        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

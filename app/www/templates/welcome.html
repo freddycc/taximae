@@ -1,0 +1,37 @@
+<ion-view view-title="Bienvenido">
+  <ion-content style="text-align: center;background-image: url(img/back.jpg);color:white;background-size: 100% 100%;">
+	  <div class="col">
+	  	<img src="img/icon.png" style="width: 20%;">
+	  </div>
+	  <div class="col">
+	  	<h1 style="color:white;">TaxiMae</h1>
+	  </div>
+	  <div class="col" ng-show="username">
+	  	<h3 style="color:white;">Bienvenido de nuevo <br>{{username}}.</h3>
+	  </div>
+	  <br><br>
+	  	<div class="">
+	  		<p style="font-size: 17px;">
+		    Si es usted taxista, tenga a la mano una herramienta que sus clientes se mantengan en contacto directo con sus servicios.</p>
+	    </div>
+	    <br>
+	    <div class="" >
+	    	<p style="font-size: 17px;">
+		    Si bien es usted un cliente, aproveche las funcionalidades y contacte a sus taxistas preferidos o simplemente pida un taxi.</p>
+	  </div>
+	  <div ng-hide="username" class="col">
+	  	<a class="button button-full button-positive padding" ng-click="login()">
+  			Ingresar
+		</a>
+		<a class="button button-full button-calm padding" ng-click="toRegister()">
+		  Registrarse
+		</a>
+		<!--a href="#" style="color:white;">Recuperar contrase&ntilde;a</a><label class="toggle">
+   <input type="checkbox">
+   <div class="track">
+     <div class="handle"></div>
+   </div-->
+</label>
+	  </div>
+  </ion-content>
+</ion-view>

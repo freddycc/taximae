@@ -1,0 +1,71 @@
+<ion-view view-title="Crear solicitud">
+  <ion-content>
+
+  <form name="form">
+  	<div class="list card">
+      <label class="item item-divider item-text-wrap">
+        <h4>Complete la informaci&oacute;n para crear la solicitud.</h4>
+      </label>
+      <label class="item item-input">
+        <textarea ng-model="request.description" placeholder="Describa su ubicaci&oacute;n para encontrase con el taxista." required></textarea>
+      </label>
+      <div class="item button-bar">
+        <a class="button button-small button-{{private.status}}" ng-click="activeButton('1')">Solicitud privada</a>
+        <a class="button button-small button-{{public.status}}" ng-click="activeButton('2')">Solicitud p&uacute;blica</a>
+      </div>
+      <label ng-hide="request.inputTaxi=='2'" class="item item-input item-select">
+        <div class="input-label">Taxista</div>
+        <select ng-model="request.taxi" ng-change="getStarsNumber()">
+          <option value="">Seleccione un taxista</option>
+          <option ng-repeat="taxi in taxis" value="{{taxi.service_id}}">{{taxi.alias}}</option>
+        </select>
+      </label>
+      <label ng-show="request.taxi!=''" class="item">
+        <span style="font-size: 12px; padding-right:4em;">Calificaci&oacute;n del taxista:&nbsp;</span><img ng-repeat="i in stars track by $index" src="img/favorites.png" style="width: 15px;">
+      </label>
+      <label class="item item-input item-select" ng-show="request.inputTaxi=='2'" >
+          <div class="input-label">
+            Tipo de taxi
+          </div>
+          <select ng-model="request.service_type">
+            <option value="ALL">Cualquiera</option>
+            <option value="TXRJ">Rojo</option>
+            <option value="TPRT">Pirata</option>
+          </select>
+      </label>
+      <label class="item item-input item-select" ng-show="request.inputTaxi=='2'">
+          <div class="input-label">
+            M&eacute;todo de pago
+          </div>
+          <select ng-model="request.payment_method">
+            <option value="ALL">Tarjeta y Efectivo</option>
+            <option value="TAR">Tarjeta</option>
+            <option value="EFE">Efectivo</option>
+          </select>
+      </label>
+      <label class="item item-input item-select" ng-show="request.inputTaxi=='2'">
+          <div class="input-label">
+            Tipo de veh&iacute;culo
+          </div>
+          <select ng-model="request.vehicle_type">
+            <option value="ALL">Cualquiera</option>
+            <option value="AUT">Autom&oacute;vil</option>
+            <option value="PKU">Pick Up</option>
+            <option value="BUS">Buseta</option>
+          </select>
+      </label>
+      <ion-toggle class="item item-divider item-text-wrap" ng-model="request.saveFavorite" toggle-class="toggle-positive">
+        <h3>Desea guardar la solicitud en favoritas.</h3>
+        <!--span ng-show="request.saveFavorite">Guardar solicitud en favoritos</span>
+        <span ng-hide="request.saveFavorite">No guardar solicitud en favoritos</span-->
+      </ion-toggle>
+      <label ng-show="request.saveFavorite" class="item item-input">
+        <input type="text" placeholder="Alias de favorito" ng-model="request.alias">
+      </label>
+    	<label class="item">
+          <button class="button button-block button-positive" ng-click="create()" ng-disabled="form.$invalid||(request.inputTaxi=='1'&&request.taxi=='')">Crear solicitud</button>
+    	</label>
+  	</div>
+    </form>
+  </ion-content>
+</ion-view>

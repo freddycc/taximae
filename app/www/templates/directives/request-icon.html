@@ -1,0 +1,12 @@
+<!-- icono de solicitudes privadas -->
+<i ng-show="request.service_id && request.status==''" class="icon ion-ios-arrow-right"></i>
+<!-- icono de solicitudes públicas -->
+<i ng-show="!request.service_id && request.status==''" class="icon ion-ios-arrow-right"></i>
+<!-- icono de solicitudes atendidas -->
+<i ng-show="request.service_id && request.status=='1'" class="icon ion-android-done-all"></i>
+<!-- icono de solicitudes pendientes -->
+<i ng-show="request.service_id && request.status=='0'" class="icon ion-android-done"></i>
+<!-- icono de solicitudes terminadas -->
+<i ng-show="request.service_id && request.status=='2'" class="icon ion-android-close"></i>
+<!-- icono de solicitudes Canceladas -->
+<i ng-show="request.status=='3' || (!request.service_id && request.status=='2')" class="icon ion-android-warning"></i>

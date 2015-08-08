@@ -1,0 +1,28 @@
+<ion-view view-title="Configurar rango">
+  <ion-content>
+  	<label class="item">
+  		Rango de distancia: {{rank}} <span ng-show="rank">kilometros.</span>
+  	</label>
+  	<div class="item range range-positive">
+	    <i class="icon ion-ios-plus-outline"></i>
+	    <input type="range" name="volume" min="1" max="30" ng-model="rank">
+	    <i class="icon ion-ios-plus"></i>
+	</div>
+  </ion-content>
+  <div class="tabs-striped tabs-color-positive">
+    <div class="tabs">
+      <a class="tab-item" href="#/app/requests">
+        <i class="icon ion-ios-paper-outline"></i>
+        Solicitudes
+      </a>
+      <a class="tab-item" href="#/app/todo">
+        <i class="icon ion-ios-list-outline"></i>
+        Solicitudes por hacer
+      </a>
+      <a class="tab-item active" href="#">
+        <i class="icon ion-ios-gear"></i>
+        Configurar rango
+      </a>
+    </div>
+  </div>
+</ion-view>

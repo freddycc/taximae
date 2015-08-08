@@ -1,0 +1,29 @@
+<ion-view view-title="Mis Taxistas">
+  <ion-content>
+  	<ion-refresher
+	    pulling-text="Pull to refresh..."
+	    on-refresh="doTaxisRefresh()">
+	  </ion-refresher>
+    <ion-list show-delete="!newTaxi.addTaxi">
+      <ion-toggle class="item" ng-model="newTaxi.addTaxi" toggle-class="toggle-positive">
+        <span ng-show="newTaxi.addTaxi">Nuevo taxista</span>
+        <span ng-hide="newTaxi.addTaxi">Agregar taxista favorito</span>
+      </ion-toggle>
+      <div class="list list-inset" ng-show="newTaxi.addTaxi">
+        <label class="item item-input">
+          <input type="text" ng-model="newTaxi.alias" placeholder="Digite el alias del nuevo taxista favorito.">
+        </label>
+        <label class="item item-input">
+          <input type="text" ng-model="newTaxi.username" style="text-transform: lowercase;" placeholder="Ingrese el usuario del taxista">
+        </label>
+        <a class="button button-positive button-small" ng-click="saveTaxi();" ng-disabled="newTaxi.alias==''||newTaxi.username==''">
+          Agregar
+        </a>
+      </div>
+      <ion-item class="item item-icon-right item-text-wrap" ng-repeat="taxi in taxis">
+      <ion-delete-button class="ion-minus-circled" ng-click="confirmDelTaxi(taxi.id)"></ion-delete-button>
+        {{taxi.alias}}<br><span style="font-size: 12px;">Calificaci&oacute;n:</span><img ng-repeat="i in getNumber(taxi.score) track by $index" src="img/favorites.png" style="width: 15px;"/>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

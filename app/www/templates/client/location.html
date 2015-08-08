@@ -1,0 +1,24 @@
+<ion-view view-title="Ubicaci&oacute;n">
+  <ion-content>
+  	<div class="list" ng-show="saveFavorite()">
+  	  <label class="item item-input">
+  	    <input type="text" ng-model="favorite.alias" placeholder="Digite el alias para la nueva direcci&oacute;n favorita">
+  	  </label>
+    </div>
+    <div class="list" ng-hide="locations.length==0 || saveFavorite()">  
+      <label class="item item-input item-select">
+        <div class="input-label">Ubicaci&oacute;n</div>
+        <select ng-model="data.favoriteId" ng-change="setLocationMark(data.favoriteId)">
+          <option value="">Elegir en mapa</option>
+          <option ng-repeat="location in locations" value="{{location.id}}">{{location.alias}}</option>
+        </select>
+      </label>
+    </div>
+    <div class="button-bar">
+        <button ng-click="findMe()" class="button button-block icon-left ion-android-locate button-positive">Buscarme</button>
+        <button ng-click="saveLocation()" ng-show="saveFavorite()" class="button button-block icon-left ion-android-archive button-positive" ng-disabled="favorite.alias==''">Guardar</button>
+        <button ng-click="request()" ng-hide="saveFavorite()" class="button button-block icon-left ion-paper-airplane button-positive">Solicitar</button>
+    </div>
+    <div id="map" data-tap-disabled="true"></div>
+  </ion-content>
+</ion-view>

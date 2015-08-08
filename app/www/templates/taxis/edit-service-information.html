@@ -1,0 +1,59 @@
+<ion-view view-title="Cambiar informaci&oacute;n de servicio">
+  <ion-content>
+    <form ng-submit="updateInfo()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" ng-model="service.phone" placeholder="Tel&eacute;fono">
+        </label>
+        <!--label class="item item-toggle">
+	     Contacto privado
+	      <label class="toggle toggle-positive">
+	        <input ng-model="service.isPrivated" type="checkbox">
+	        <div class="track">
+	          <div class="handle"></div>
+	        </div>
+	      </label>
+	  	</label-->
+  		<label class="item">
+  		  <label class="item item-radio">
+		    <input type="radio" ng-model="service.service_type" name="serviceType" value="TXRJ" checked='true'>
+		    <div class="item-content">
+		      Taxi Rojo
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+		  </label>
+		  <label class="item item-radio">
+		    <input type="radio" ng-model="service.service_type" name="serviceType" value="TPRT">
+		    <div class="item-content">
+		      Pirata
+		    </div>
+		    <i class="radio-icon ion-checkmark"></i>
+		  </label>
+		  </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      M&eacute;todo de pago
+		    </div>
+		    <select ng-model="service.payment_method">
+		      <option value="ALL">Tarjeta y Efectivo</option>
+		      <option value="TAR">Tarjeta</option>
+		      <option value="EFE">Efectivo</option>
+		    </select>
+		  </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Tipo de veh&iacute;culo
+		    </div>
+		    <select ng-model="service.vehicle_type">
+		      <option value="AUT">Autom&oacute;vil</option>
+		      <option value="PKU">Pick Up</option>
+		      <option value="BUS">Buseta</option>
+		    </select>
+		  </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Guardar</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

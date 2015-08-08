@@ -1,0 +1,20 @@
+<span ng-show="request.status==''">
+	<i class="icon ion-android-radio-button-off"></i>
+	Sin atender
+</span>
+<span ng-show="request.status=='0'">
+	<i class="icon ion-android-radio-button-on"></i>
+	Pendiente
+</span>
+<span ng-show="request.status=='1'">
+	<i class="icon ion-android-checkmark-circle"></i>
+	Aprobado
+</span>
+<span ng-show="request.status=='2'">
+	<i class="icon ion-android-cancel"></i>
+	Terminado
+</span>
+<span ng-show="request.status=='3'">
+	<i class="icon ion-android-close"></i>
+	Cancelado
+</span>

@@ -1,0 +1,23 @@
+<ion-view view-title="Mis ubicaciones">
+  <ion-content>
+  	<ion-refresher
+	    pulling-text="Pull to refresh..."
+	    on-refresh="doLocationsRefresh()">
+	  </ion-refresher>
+    <ion-list show-delete="true">
+      <ion-item class="item item-icon-right item-text-wrap">
+      <ion-delete-button class="ion-plus-circled" ng-click="saveLocation()"></ion-delete-button>
+        Agregar ubicación favorita
+        <!--ion-option-button class="button-positive"
+                       ng-click="saveLocation()">
+      Share
+    </ion-option-button-->
+        <!--a class="button button-icon icon ion-plus-circled" ng-click="saveLocation()"></a-->
+      </ion-item>
+      <ion-item class="item item-icon-right item-text-wrap" ng-repeat="location in locations">
+        <ion-delete-button class="ion-minus-circled" ng-click="confirmDelLocation(location.id)"></ion-delete-button>
+        {{location.alias}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

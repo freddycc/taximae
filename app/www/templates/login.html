@@ -1,0 +1,38 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-assertive">
+    <h1 class="title">Inicio sessi&oacute;n</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Cerrar</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="form">
+      <div class="list">
+        <label class="item">
+          <label class="item item-input">
+            <span class="input-label">Nombre de usuario</span>
+            <input type="text" min="6" ng-model="data.username" style="text-transform: lowercase;" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Contrase&ntilde;a</span>
+            <input type="password" min="7" ng-model="data.password" required>
+          </label>
+          <label class="item item-divider" ng-show="form.$invalid||data.password.length<6">
+            <p ng-show="form.$invalid">Nombre de usuario y contrase&ntilde;a son requeridos.</p>
+            <p ng-show="data.password.length<6">La contrase&ntilde;a debe ser mayor a 5 caracteres.</p>
+          </label>
+          <!--bel class="item">
+            <button class="button button-block button-positive" ng-click="doLogin(data)">Ingresar</button>
+          </label-->
+          <label class="item">
+            <button class="button button-block button-positive" ng-click="doLogin(data)" ng-disabled="form.$invalid||data.password.length<6">Ingresar</button>
+          </label>
+          </label>    
+          <label class="item">
+            <button class="button button-block button-positive" ng-click="toRegister()">Registrar</button>
+          </label>
+      </div>
+    </form>
+    
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,98 @@
+<ion-view view-title="Registrar">
+  <ion-content>
+    <form ng-submit="register()" name="form">
+      <div class="list">
+      	<label class="item item-input">
+          <input type="text" ng-model="user.name" placeholder="Nombre" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" ng-model="user.username" placeholder="Nombre de usuario" style="text-transform: lowercase;" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" ng-model="user.password" placeholder="Contrase&ntilde;a" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" ng-model="user.password_confirmation" placeholder="Confirmar contrase&ntilde;a" required>
+        </label>
+        <label class="item item-dividier" ng-show="user.password!=user.password_confirmation">
+          <p style="color:red;">Las contrase&ntilde;as no coinciden.</p>
+        </label>
+        <label class="item item-dividier" ng-show="user.password.length<6 || user.username.length<6">
+          <p style="color:red;">Usuario y contraseña deben tener m&aacute;s de 6 caract&eacute;res.</p>
+        </label>
+        <label class="item item-input">
+          <input type="number" ng-model="user.phone" placeholder="Tel&eacute;fono">
+        </label>
+        <!--label class="item item-toggle">
+	     Contacto privado
+	      <label class="toggle toggle-positive">
+	        <input ng-model="user.isPrivate" type="checkbox">
+	        <div class="track">
+	          <div class="handle"></div>
+	        </div>
+	      </label>
+	  	</label-->
+	  	<label class="item item-checkbox">
+	  	  Soy Taxista
+	      <label class="checkbox">
+	        <input ng-model="user.isTaxi" type="checkbox">
+	      </label>
+	  	</label>
+	  	<div ng-show="user.isTaxi">
+	  		<label class="item">
+	  		  <label class="item item-radio">
+			    <input type="radio" ng-model="user.service_type" name="serviceType" value="TXRJ" checked='true'>
+			    <div class="item-content">
+			      Taxi Rojo
+			    </div>
+			    <i class="radio-icon ion-checkmark"></i>
+			  </label>
+			  <label class="item item-radio">
+			    <input type="radio" ng-model="user.service_type" name="serviceType" value="TPRT">
+			    <div class="item-content">
+			      Pirata
+			    </div>
+			    <i class="radio-icon ion-checkmark"></i>
+			  </label>
+			</label>
+			<label class="item item-input item-select">
+			    <div class="input-label">
+			      M&eacute;todo de pago
+			    </div>
+			    <select ng-model="user.payment_method">
+			      <option value="ALL">Tarjeta y Efectivo</option>
+			      <option value="TAR">Tarjeta</option>
+			      <option value="EFE">Efectivo</option>
+			    </select>
+			</label>
+			<label class="item item-input item-select">
+			    <div class="input-label">
+			      Tipo de veh&iacute;culo
+			    </div>
+			    <select ng-model="user.vehicle_type">
+			      <option value="AUT">Autom&oacute;vil</option>
+			      <option value="PKU">Pick Up</option>
+			      <option value="BUS">Buseta</option>
+			    </select>
+			</label>
+	  	</div>
+	  	<label class="item">
+  		  <label class="item">		    
+		    <div class="item-content item-text-wrap">
+		      Ver condiciones de uso en: http://fccsites.wix.com/taximae
+		    </div>
+		  </label>
+		  <label class="item item-checkbox">
+		  	Acepto condiciones de uso.
+		    <label class="checkbox">
+		      <input ng-model="user.accept" type="checkbox">
+		    </label>
+		  </label>
+		</label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="form.$invalid||user.password.length<6 || user.username.length<6 || (user.password!=user.password_confirmation) || !user.accept">Registrar</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

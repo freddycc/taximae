@@ -1,0 +1,67 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-assertive">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item ng-show="isClient()" menu-close href="#/app/home"><i class="icon ion-ios-home-outline"></i>
+          Crear solicitud
+        </ion-item>
+        <ion-item ng-hide="isTaxi()||isClient()" menu-close href="#/app/welcome"><i class="icon ion-ios-home-outline"></i>
+          Inicio
+        </ion-item>
+        <ion-item ng-hide="isTaxi()||isClient()" menu-close ng-click="login()"><i class="icon ion-log-in"></i>
+          Ingresar
+        </ion-item>
+        <ion-item ng-show="isTaxi()" menu-close href="#/app/requests">
+        <i class="icon ion-ios-locked-outline"></i>
+          Solicitudes privadas<span ng-show="privateCount!=0" class="badge badge-assertive">{{privateCount}}</span>
+        </ion-item>
+        <ion-item ng-show="isTaxi()" menu-close href="#/app/public">
+        <i class="icon ion-ios-unlocked-outline"></i>
+          Solicitudes p&uacute;blicas<span ng-show="publicCount!=0" class="badge badge-assertive">{{publicCount}}</span>
+        </ion-item>
+        <ion-item ng-show="isTaxi()" menu-close href="#/app/served">
+        <i class="icon ion-ios-box-outline"></i>
+          Pendientes y atendidas<span ng-show="pendingCount!=0" class="badge badge-assertive">{{pendingCount}}</span>
+        </ion-item>
+        <ion-item ng-show="isClient()" menu-close href="#/app/client-request"><i class="icon ion-ios-albums-outline"></i>
+          Solicitudes creadas
+        </ion-item>
+        <ion-item ng-show="isClient()" menu-close href="#/app/favorite-taxi"><i class="icon ion-ios-star-outline"></i>
+          Mis taxistas
+        </ion-item>
+        <ion-item ng-show="isClient()" menu-close href="#/app/favorite-location"><i class="icon ion-ios-location-outline"></i>
+          Mis ubicaciones
+        </ion-item>
+        <ion-item ng-show="isClient()" menu-close href="#/app/favorite-requests"><i class="icon ion-ios-compose-outline"></i>
+          Solicitudes favoritas
+        </ion-item>
+        <ion-item ng-show="isTaxi()" menu-close href="#/app/edit-service"><i class="icon ion-ios-cog-outline"></i>
+          Configuraciones
+        </ion-item>
+        <ion-item menu-close href="#/app/about"><i class="icon ion-ios-information-outline"></i>
+          Acerca de
+        </ion-item>
+        <ion-item ng-show="isTaxi()||isClient()" menu-close ng-click="logout()">
+        <i class="icon ion-log-out"></i>
+          Salir
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

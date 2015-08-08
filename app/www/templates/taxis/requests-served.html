@@ -1,0 +1,14 @@
+<ion-view view-title="Solicitudes pendientes y atendidas">
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item item-divider item-icon-right item-text-wrap" ng-click="doRefresh()">Refrescar<i class="icon ion-ios-refresh-outline"></i></ion-item>
+      <ion-item class="item item-icon-right item-text-wrap" ng-repeat="request in requests | orderBy:'status'" href="#/app/served/{{request.id}}" ng-show="request.service_id && request.status">
+        {{request.description}}<span request-status-icon></span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

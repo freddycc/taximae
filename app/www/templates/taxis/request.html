@@ -1,0 +1,29 @@
+<ion-view view-title="Solicitud">
+  <ion-content>
+    <div class="list card">
+    	<a class="item item-icon-left item-text-wrap" href="#/app/map-detail/{{request.id}}">
+        <i class="icon ion-android-pin"></i>
+        {{request.description}}
+      </a>
+    	<label payment-method class="item item-icon-left"></label>
+    	<label vehicle-type class="item item-icon-left"></label>
+    	<label class="item item-checkbox">
+	  	  Atender
+	      <label class="checkbox">
+	        <input ng-model="do_request" type="checkbox">
+	      </label>
+	  	</label>
+	  	<label class="item" ng-show="do_request">
+	  		Tiempo de llegada: {{time}} <span ng-show="time">minutos.</span>
+	  	</label>
+	  	<div class="item range range-positive" ng-show="do_request">
+		    <i class="icon ion-ios-timer-outline"></i>
+		    <input type="range" name="volume" min="1" max="60" ng-model="time">
+		    <i class="icon ion-ios-timer"></i>
+		</div>
+    	<label class="item"  ng-show="do_request">
+            <button class="button button-block button-positive" ng-click="doRequest(time)">Atender</button>
+          </label>
+    </div>
+  </ion-content>
+</ion-view>

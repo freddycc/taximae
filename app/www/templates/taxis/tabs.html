@@ -1,0 +1,44 @@
+<ion-view>
+  
+    
+<ion-tabs class="tabs-positive tabs-icon-only">
+
+  <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+  <ion-view>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-icon-right item-text-wrap" ng-repeat="request in requests" href="#/app/requests/{{request.id}}" ng-show="request.service_id && request.status==''">
+        {{request.description}}<span request-status-icon></span>
+      </ion-item>
+    </ion-list>
+</ion-content>
+</ion-view>
+  </ion-tab>
+
+  <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+  <ion-view>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-icon-right item-text-wrap" ng-repeat="request in requests" href="#/app/public/{{request.id}}" ng-show="request.service_id=='' && request.status==''">
+        {{request.description}}<span request-status-icon></span>
+      </ion-item>
+    </ion-list>
+</ion-content>
+</ion-view>
+  </ion-tab>
+
+  <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+  <ion-view>
+  <ion-content>
+    <!-- Tab 3 content -->
+    <ion-list>
+      <ion-item class="item item-icon-right item-text-wrap" ng-repeat="request in requests" href="#/app/served/{{request.id}}" ng-show="request.service_id && request.status">
+        {{request.description}}<span request-status-icon></span>
+      </ion-item>
+    </ion-list>
+</ion-content>
+</ion-view>
+  </ion-tab>
+
+</ion-tabs>
+</ion-view>
